@@ -21,11 +21,6 @@ const props = defineProps<{
 }>()
 
 function onInput(event: Event) {
-  if(event) {
-    event.preventDefault();
-    event.stopPropagation();
-  }
-
   const formData = new FormData(event.target as HTMLFormElement);
 
   emit('update:name', formData.get('username'))
