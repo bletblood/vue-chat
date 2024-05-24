@@ -1,7 +1,7 @@
 <template>
   <div class="size-full min-h-[400px] shadow-inner rounded-lg shadow-slate-200 p-4 flex flex-col justify-between">
     <div class="size-full">
-      <ul v-for="msg in props.listMessages" :key="msg" class="my-1">
+      <ul v-for="msg in listMessages" :key="msg" class="my-1">
         <li class="w-full h-auto bg-blue-50 p-4 rounded-lg flex flex-row items-center">
           <span class="text-sm text-slate-500 bg-blue-100 hidden md:inline-block md:w-auto md:p-1 md:mr-2">{{ msg.createdAt }}</span>
           <span class="font-mono font-semibold text-lg">{{ msg.username }}</span>
@@ -24,7 +24,7 @@
 //   date: "23.05.2024, 10:15:47"
 // }]) as any
 
-const props = defineProps<{
+defineProps<{
   listMessages: any
 }>()
 const emit = defineEmits(['update:message'])
@@ -46,6 +46,6 @@ function sendMessage(event: Event) {
     createdAt: new Date().toLocaleString()
   })
   
-  if(props.listMessages.length > 0) target.reset();
+  if(listMessages.length > 0) target.reset();
 }
 </script>
